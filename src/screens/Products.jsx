@@ -1,19 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Products = () => {
+  const test = "abc";
+  const navigate = useNavigate();
   return (
     <div>
       <h1>Products Page</h1>
       <ul>
         <li>
-          <Link to="/Products/1">Products 1</Link>
+          <p
+            onClick={() => {
+              navigate("/Products/1", { state: { test: "abc" } });
+            }}
+          >
+            Products 1
+          </p>
         </li>
         <li>
-          <Link to="/Products/2">Products 2</Link>
+          <Link to="/Products/2" state={{ test: "123" }}>
+            Products 2
+          </Link>
         </li>
         <li>
-          <Link to="/Products/3">Products 3</Link>
+          <Link to="/Products/3" state={{ test: "test" }}>
+            Products 3
+          </Link>
         </li>
       </ul>
     </div>
